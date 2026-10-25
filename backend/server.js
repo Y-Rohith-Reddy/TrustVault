@@ -176,7 +176,9 @@ app.get("/api/auth/me", authenticateToken, (req, res) => {
 
   res.json({ user });
 });
-
+app.get("/", (req, res) => {
+  res.send("TrustVault API is working");
+});
 app.listen(PORT, () => {
   console.log(`TrustVault API running at http://localhost:${PORT}`);
 });
