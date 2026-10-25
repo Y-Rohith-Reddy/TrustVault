@@ -18,7 +18,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(helmet());
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://trust-vault-sable.vercel.app"
+  ]
+}));
 app.use(express.json({ limit: "1mb" }));
 
 const authLimiter = rateLimit({
